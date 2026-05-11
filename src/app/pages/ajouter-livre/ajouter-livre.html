@@ -1,0 +1,60 @@
+<div class="form-container">
+
+  <h2>➕ Ajouter un livre</h2>
+
+  <form (ngSubmit)="addBook()">
+
+    <input
+      type="text"
+      placeholder="Titre"
+      [(ngModel)]="titre"
+      name="titre"
+      required
+      #titreCtrl="ngModel"
+    />
+    @if (titreCtrl.invalid && titreCtrl.touched) {
+        <div class="error">
+            Le titre est obligatoire
+        </div>
+        }
+
+    <input
+      type="text"
+      placeholder="Auteur"
+      [(ngModel)]="auteur"
+      name="auteur"
+      required
+      #auteurCtrl="ngModel"
+    />
+    @if (auteurCtrl.invalid && auteurCtrl.touched){
+        <div class="error">
+    L'auteur est obligatoire
+    </div>
+        }
+
+    <input
+      type="number"
+      placeholder="Année"
+      [(ngModel)]="annee"
+      name="annee"
+    />
+
+    <input
+      type="text"
+      placeholder="ISBN"
+      [(ngModel)]="isbn"
+      name="isbn"
+    />
+
+    <button type="submit" [disabled]="loading || !titre.trim() || !auteur.trim()">
+      {{ loading ? 'Ajout...' : 'Ajouter' }}
+    </button>
+
+  </form>
+@if (errorMessage) {
+    <p class="error">
+        {{ errorMessage }}
+    </p>
+}
+
+</div>

@@ -1,0 +1,57 @@
+<div class="form-container">
+
+  <h2>✏️ Modifier Livre</h2>
+  
+
+  <form (ngSubmit)="updateBook()">
+
+    <input
+      type="text"
+      [(ngModel)]="titre"
+      name="titre"
+      placeholder="Titre"
+      required
+      #titreCtrl="ngModel"
+    />
+    @if (titreCtrl.invalid && titreCtrl.touched) {
+        <div class="error">
+            Le titre est obligatoire
+        </div>
+        }
+
+    <input
+      type="text"
+      [(ngModel)]="auteur"
+      name="auteur"
+      placeholder="Auteur"
+      required
+      #auteurCtrl="ngModel"
+    />
+    @if (auteurCtrl.invalid && auteurCtrl.touched){
+        <div class="error">
+    L'auteur est obligatoire
+    </div>
+        }
+
+    <input
+      type="number"
+      [(ngModel)]="annee"
+      name="annee"
+      placeholder="Année"
+    />
+
+    <input
+      type="text"
+      [(ngModel)]="isbn"
+      name="isbn"
+      placeholder="ISBN"
+    />
+
+    <button type="submit" [disabled]="loading || !titre?.trim() || !auteur?.trim()">
+      {{ loading ? 'Mise à jour...' : 'Mettre à jour' }}
+    </button>
+ 
+
+  </form>
+
+</div>

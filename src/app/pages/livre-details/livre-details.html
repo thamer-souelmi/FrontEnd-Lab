@@ -1,0 +1,25 @@
+<div class="details-container">
+
+  <h2>📖 Livre Details</h2>
+
+  @if (loading) {
+    <p>Loading...</p>
+  }
+
+  @if (!loading && book) {
+
+    <div class="card">
+
+      <p><strong>Titre:</strong> {{ book.titre }}</p>
+
+      <p><strong>Auteur:</strong> {{ book.auteur }}</p>
+
+      <p><strong>Année:</strong> {{ book.annee || '-' }}</p>
+
+      <p><strong>ISBN:</strong> {{ book.isbn || '-' }}</p>
+
+    </div>
+
+  }
+
+</div>

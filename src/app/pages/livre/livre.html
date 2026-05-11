@@ -1,0 +1,59 @@
+<div class="books-container">
+
+  <div class="header">
+    <h2>📚 Books List</h2>
+
+    <div class="actions-top">
+      <button (click)="addBook()">➕ Add Book</button>
+      <button class="logout" (click)="logout()">🚪 Logout</button>
+    </div>
+  </div>
+
+  @if (loading) {
+    <div>Loading...</div>
+  }
+
+  @if (!loading && books.length === 0) {
+    <div>No books found</div>
+  }
+
+  @if (!loading && books.length > 0) {
+
+    <table class="books-table">
+
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Auteur</th>
+          <th>Année</th>
+          <th>ISBN</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (book of books; track book.auteur) {
+          <tr>
+
+            <td>{{ book.titre }}</td>
+            <td>{{ book.auteur }}</td>
+            <td>{{ book.annee || '-' }}</td>
+            <td>{{ book.isbn || '-' }}</td>
+
+            <td>
+              <button (click)="viewBook(book)">👁</button>
+              <button (click)="editBook(book)">✏️</button>
+              <button (click)="deleteBook(book._id)">🗑</button>
+            </td>
+
+          </tr>
+        }
+
+      </tbody>
+
+    </table>
+
+  }
+
+</div>
