@@ -3,14 +3,14 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LivreService } from '../../core/services/livre-service';
-import { LivreModel } from '../../core/Models/livres-models';
+import { LivreModel } from '../../core/models/livres-models';
 @Component({
   selector: 'app-modifier-livre',
   imports: [FormsModule, CommonModule],
   templateUrl: './modifier-livre.html',
   styleUrl: './modifier-livre.css',
 })
-export class ModifierLivre implements OnInit {
+export class ModifierLivreComponent implements OnInit {
 
   id = '';
 
@@ -32,7 +32,6 @@ export class ModifierLivre implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')!;
 
     this.loadBook();
-    console.log('Book ID from route:', this.id); // Debugging log
   }
 
   loadBook() {
@@ -46,11 +45,8 @@ export class ModifierLivre implements OnInit {
         this.isbn = book.isbn ?? '';
         this.loading = false;
         this.cdr.detectChanges();
-        console.log('Book loaded:', book); // Debugging log
       },
       error: (err) => {
-        console.log('Error loading book:', err); // Debugging log
-        console.error(err);
         this.loading = false;
         this.cdr.detectChanges();
       }
@@ -75,7 +71,6 @@ export class ModifierLivre implements OnInit {
         this.cdr.detectChanges();
       },
       error: (err) => {
-        console.error(err);
         this.loading = false;
         this.cdr.detectChanges();
       }

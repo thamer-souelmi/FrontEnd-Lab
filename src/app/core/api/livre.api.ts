@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AuthAPI } from './auth.api';
 
-import { BookResponse, LivreModel } from '../Models/livres-models';
+import { BookResponse, LivreModel } from '../models/livres-models';
 
 @Injectable({
   providedIn: 'root',

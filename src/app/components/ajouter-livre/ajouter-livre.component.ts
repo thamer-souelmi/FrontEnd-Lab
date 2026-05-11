@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LivreService } from '../../core/services/livre-service';
-import { LivreModel } from '../../core/Models/livres-models';
+import { LivreModel } from '../../core/models/livres-models';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './ajouter-livre.html',
   styleUrl: './ajouter-livre.css',
 })
-export class AjouterLivre { 
+export class AjouterLivreComponent { 
 
   titre = '';
   auteur = '';
@@ -51,7 +51,6 @@ export class AjouterLivre {
           
       },
       error: (err:HttpErrorResponse) => {
-        console.error(err);
         this.loading = false;
         this.errorMessage = 'Erreur lors de l’ajout';
         this.cdr.detectChanges();

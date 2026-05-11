@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login {
+export class LoginComponent {
   email = '';
   password = '';
   errorMessage = '';
@@ -42,7 +42,6 @@ export class Login {
     error: (err) => {
       this.loading = false; // ✅ MUST BE FIRST
       this.errorMessage = err?.error?.detail || 'Invalid email or password';
-      console.error(err);
       this.cdr.detectChanges();
     }
   });

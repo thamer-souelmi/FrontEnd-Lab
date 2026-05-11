@@ -1,14 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LivreService } from '../../core/services/livre-service';
-import { LivreModel } from '../../core/Models/livres-models';
+import { LivreModel } from '../../core/models/livres-models';
 @Component({
   selector: 'app-livre-details',
   imports: [],
   templateUrl: './livre-details.html',
   styleUrl: './livre-details.css',
 })
-export class LivreDetails implements OnInit {
+export class LivreDetailsComponent implements OnInit {
 
   book: LivreModel | null = null;
   loading = false;
@@ -34,7 +34,6 @@ export class LivreDetails implements OnInit {
         this.cdr.detectChanges();
       },
       error: (err) => {
-        console.error(err);
         this.loading = false;
         this.cdr.detectChanges();
       }

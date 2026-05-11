@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { LivreModel } from '../../core/Models/livres-models';
+import { LivreModel } from '../../core/models/livres-models';
 import { LivreService } from '../../core/services/livre-service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './livre.html',
   styleUrl: './livre.css',
 })
-export class Livre implements OnInit {
+export class LivreComponent implements OnInit {
 
   books: LivreModel[] = [];
   loading = false;
@@ -32,13 +32,9 @@ export class Livre implements OnInit {
       next: (res) => {
         this.books = res.results;
         this.loading = false;
-        console.log('Books loaded:', this.books); // Debugging log
-        console.log('Total books:', res.total); // Debugging log
-        console.log('API loading:', this.loading); // Debugging log
         this.cdr.detectChanges();
       },
       error: (err) => {
-        console.error(err);
         this.loading = false;
         this.cdr.detectChanges();
       }
@@ -49,7 +45,6 @@ export class Livre implements OnInit {
 }
 
 viewBook(book: LivreModel) {
-  console.log('Viewing book:', book); // Debugging log
   this.router.navigate(['/livre', book._id]);
 }
 
@@ -59,7 +54,6 @@ editBook(book: LivreModel) {
 
 deleteBook(id: string) {
   if (confirm('Are you sure you want to delete this book?')) {
-    console.log('Deleting book with ID:', id); // Debugging log
     this.bookService.deleteLivre(id).subscribe(() => {
       this.loadBooks(); // refresh list
     }

@@ -1,6 +1,6 @@
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { BookResponse, LivreModel } from "../Models/livres-models";
+import { BookResponse, LivreModel } from "../models/livres-models";
 import { LivreAPI } from "../api/livre.api";
 
 @Injectable({
@@ -17,7 +17,6 @@ export class LivreService {
         return this.livreApi.getOneLivres(id);
     }
   addLivre(livre: LivreModel): Observable<LivreModel> {
-    console.log('Adding book service:', livre); // Debugging log
     return this.livreApi.addLivre(livre);
   }
     updateLivre(id: string, livre: any): Observable<any> {

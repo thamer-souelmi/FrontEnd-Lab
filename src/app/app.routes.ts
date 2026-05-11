@@ -1,30 +1,30 @@
 import { Routes } from '@angular/router';
-import { Login } from './components/login/login';
-import { Livre } from './components/livre/livre';
-import { AjouterLivre } from './components/ajouter-livre/ajouter-livre';
-import { ModifierLivre } from './components/modifier-livre/modifier-livre';
-import { LivreDetails } from './components/livre-details/livre-details';
+import { LoginComponent } from './components/login/login.component';
+import { LivreComponent } from './components/livre/livre.component';
+import { AjouterLivreComponent } from './components/ajouter-livre/ajouter-livre.component';
+import { ModifierLivreComponent } from './components/modifier-livre/modifier-livre.component';
+import { LivreDetailsComponent } from './components/livre-details/livre-details.component';
 
 export const routes: Routes = [
 
   {
     path: '',
-    component: Login
+    component: LoginComponent
   },
   {
     path: 'livre',
-    component: Livre
+    component: LivreComponent
   },
   {
     path: 'livre/add',
-    component: AjouterLivre
+    component: AjouterLivreComponent
   },
   {
   path: 'livre/edit/:id',
-  component: ModifierLivre
+  component: ModifierLivreComponent
 },
 {
   path: 'livre/:id',
-  component: LivreDetails
+  component: LivreDetailsComponent
 }
 ];

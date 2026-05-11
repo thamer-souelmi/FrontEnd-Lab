@@ -25,7 +25,6 @@ export class AuthAPI {
    */
   login(email: string, password: string): Observable<LoginResponse> {
     const payload: LoginRequest = { email, password };
-    console.log('Login payload:', payload); // Debugging log
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, payload);
   }
 

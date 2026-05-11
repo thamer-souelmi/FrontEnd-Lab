@@ -47,7 +47,7 @@
       placeholder="ISBN"
     />
 
-    <button type="submit" [disabled]="loading || !titre?.trim() || !auteur?.trim()">
+    <button type="submit" [disabled]="loading || !titre.trim() || !auteur.trim()">
       {{ loading ? 'Mise à jour...' : 'Mettre à jour' }}
     </button>
  
