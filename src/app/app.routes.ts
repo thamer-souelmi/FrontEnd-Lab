@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { Login } from './pages/login/login';
-import { Livre } from './pages/livre/livre';
-import { AjouterLivre } from './pages/ajouter-livre/ajouter-livre';
-import { ModifierLivre } from './pages/modifier-livre/modifier-livre';
-import { LivreDetails } from './pages/livre-details/livre-details';
+import { Login } from './components/login/login';
+import { Livre } from './components/livre/livre';
+import { AjouterLivre } from './components/ajouter-livre/ajouter-livre';
+import { ModifierLivre } from './components/modifier-livre/modifier-livre';
+import { LivreDetails } from './components/livre-details/livre-details';
 
 export const routes: Routes = [
 

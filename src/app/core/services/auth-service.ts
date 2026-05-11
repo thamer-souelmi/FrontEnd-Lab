@@ -1,21 +1,20 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment'; 
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 
-
 @Injectable({
   providedIn: 'root',
 })
-export class AuthAPI {
+export class AuthService {
   private apiUrl = environment.apiUrl;
   private tokenKey = 'access_token';
   private tokenTypeKey = 'token_type';
 
-  constructor(private http: HttpClient,private cookieService: CookieService) {}
-
+  private http = inject(HttpClient);
+  private cookieService = inject(CookieService);
   /**
    * Login with email and password
    * @param email User email

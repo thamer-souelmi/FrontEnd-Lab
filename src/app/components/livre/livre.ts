@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { LivreModule } from '../../core/Modules/livresModule';
-import { LivreService } from '../../core/services/livreService';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { LivreModel } from '../../core/Models/livres-models';
+import { LivreService } from '../../core/services/livre-service';
 import { CommonModule } from '@angular/common';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livre',
@@ -13,12 +13,13 @@ import { Route, Router } from '@angular/router';
 })
 export class Livre implements OnInit {
 
-  books: LivreModule[] = [];
+  books: LivreModel[] = [];
   loading = false;
 
-  constructor(private bookService: LivreService,private router: Router,
-    private cdr: ChangeDetectorRef
-  ) {}
+  private router= inject(Router);
+  private bookService = inject(LivreService);
+  private cdr = inject(ChangeDetectorRef);
+
 
   ngOnInit(): void {
     this.loadBooks();
@@ -47,12 +48,12 @@ export class Livre implements OnInit {
   this.router.navigate(['/livre/add']);
 }
 
-viewBook(book: LivreModule) {
+viewBook(book: LivreModel) {
   console.log('Viewing book:', book); // Debugging log
   this.router.navigate(['/livre', book._id]);
 }
 
-editBook(book: LivreModule) {
+editBook(book: LivreModel) {
   this.router.navigate(['/livre/edit', book._id]);
 }
 

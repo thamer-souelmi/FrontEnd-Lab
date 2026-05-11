@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LivreService } from '../../core/services/livreService';
-import { LivreModule } from '../../core/Modules/livresModule';
-
+import { LivreService } from '../../core/services/livre-service';
+import { LivreModel } from '../../core/Models/livres-models';
 @Component({
   selector: 'app-modifier-livre',
   imports: [FormsModule, CommonModule],
@@ -61,7 +60,7 @@ export class ModifierLivre implements OnInit {
   updateBook() {
     this.loading = true;
 
-    const updated: LivreModule = {
+    const updated: LivreModel = {
       _id: this.id,
       titre: this.titre,
       auteur: this.auteur,

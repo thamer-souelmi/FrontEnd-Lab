@@ -1,22 +1,22 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { BookResponse, LivreModule } from "../Modules/livresModule";
-import { LivreAPI } from "../api/livreAPI";
+import { BookResponse, LivreModel } from "../Models/livres-models";
+import { LivreAPI } from "../api/livre.api";
 
 @Injectable({
   providedIn: 'root',
 })
 export class LivreService {
 
-  constructor(private livreApi: LivreAPI) {}
+  private livreApi = inject(LivreAPI);
 
   getAllLivres(): Observable<BookResponse> {
     return this.livreApi.getLivres();
   }
-    getOneLivres(id: string): Observable<LivreModule> {
+    getOneLivres(id: string): Observable<LivreModel> {
         return this.livreApi.getOneLivres(id);
     }
-  addLivre(livre: LivreModule): Observable<LivreModule> {
+  addLivre(livre: LivreModel): Observable<LivreModel> {
     console.log('Adding book service:', livre); // Debugging log
     return this.livreApi.addLivre(livre);
   }

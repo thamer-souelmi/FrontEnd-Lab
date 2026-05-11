@@ -1,11 +1,9 @@
-import { ChangeDetectorRef, Component, inject, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-// import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LivreService } from '../../core/services/livreService';
-import { LivreModule } from '../../core/Modules/livresModule';
+import { LivreService } from '../../core/services/livre-service';
+import { LivreModel } from '../../core/Models/livres-models';
 import { HttpErrorResponse } from '@angular/common/http';
-
 
 
 @Component({
@@ -36,7 +34,7 @@ export class AjouterLivre {
 
     this.loading = true;
 
-    const book: LivreModule = {
+    const book: LivreModel = {
       _id: '', 
   titre: this.titre,
   auteur: this.auteur,

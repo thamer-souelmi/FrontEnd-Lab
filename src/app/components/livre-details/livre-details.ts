@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LivreService } from '../../core/services/livreService';
-import { LivreModule } from '../../core/Modules/livresModule';
+import { LivreService } from '../../core/services/livre-service';
+import { LivreModel } from '../../core/Models/livres-models';
 @Component({
   selector: 'app-livre-details',
   imports: [],
@@ -10,7 +10,7 @@ import { LivreModule } from '../../core/Modules/livresModule';
 })
 export class LivreDetails implements OnInit {
 
-  book: LivreModule | null = null;
+  book: LivreModel | null = null;
   loading = false;
 
   constructor(

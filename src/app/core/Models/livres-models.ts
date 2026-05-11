@@ -1,4 +1,4 @@
-export interface LivreModule {
+export interface LivreModel {
   _id: string;
   titre: string;
   auteur: string;
@@ -7,5 +7,5 @@ export interface LivreModule {
 }
 export interface BookResponse {
   total: number;
-  results: LivreModule[];
+  results: LivreModel[];
 }

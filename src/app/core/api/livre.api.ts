@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { AuthAPI } from './authAPI';
+import { AuthAPI } from './auth.api';
 
-import { BookResponse, LivreModule } from '../Modules/livresModule';
+import { BookResponse, LivreModel } from '../Models/livres-models';
 
 @Injectable({
   providedIn: 'root',
@@ -43,8 +43,8 @@ export class LivreAPI {
       headers: this.getHeaders()
     });
   }
-  getOneLivres(id: string): Observable<LivreModule> {
-    return this.http.get<LivreModule>(`${this.apiUrl}/livres/${id}`, {
+  getOneLivres(id: string): Observable<LivreModel> {
+    return this.http.get<LivreModel>(`${this.apiUrl}/livres/${id}`, {
       headers: this.getHeaders()
     });
   }
@@ -53,13 +53,13 @@ export class LivreAPI {
    * @param livre Book data to add
    * @returns Observable of added book
    */
-  addLivre(livre: LivreModule): Observable<LivreModule> {
-    return this.http.post<LivreModule>(`${this.apiUrl}/livres`, livre, {
+  addLivre(livre: LivreModel): Observable<LivreModel> {
+    return this.http.post<LivreModel>(`${this.apiUrl}/livres`, livre, {
       headers: this.getHeaders()
     });
   }
-  updateLivre(id: string, livre: LivreModule): Observable<LivreModule> {
-    return this.http.put<LivreModule>(`${this.apiUrl}/livres/${id}`, livre, {
+  updateLivre(id: string, livre: LivreModel): Observable<LivreModel> {
+    return this.http.put<LivreModel>(`${this.apiUrl}/livres/${id}`, livre, {
       headers: this.getHeaders()
     });
   }
